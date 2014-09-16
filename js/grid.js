@@ -47,12 +47,6 @@ var GRID = function(spec) {
 	insertNewRandomValue(grid);
 
 	that.move = function(direction) {
-		if (isFull(grid)) {
-			console.log("GAME OVER!");
-			document.getElementById("game_status").textContent = "GAME OVER!!!";
-			return;
-		}
-
 		// console.log("moving " + direction);
 		var stack = {};
 		var previousGridState = "" + grid;
@@ -103,6 +97,12 @@ var GRID = function(spec) {
 				}
 				break;
 		}
+
+		if (isFull(grid)) {
+			console.log("GAME OVER!");
+			document.getElementById("game_status").textContent = "GAME OVER!!!";
+			return;
+		} 
 
 		if (previousGridState !== ("" + grid)) {
 			insertNewRandomValue(grid);	
